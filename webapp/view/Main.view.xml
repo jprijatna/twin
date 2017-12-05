@@ -1,0 +1,256 @@
+<mvc:View controllerName="DPROP.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:tnt="sap.tnt" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:acc="DPROP.control" xmlns:l="sap.ui.layout" xmlns:vk="sap.ui.vk">
+	<tnt:ToolHeader id="brandHeader" class="brandHeader">
+		<Image src="images/DeloitteLogo.png" height="15px" class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiTinyMarginBottom"/>
+		<ToolbarSpacer/>
+		<Image src="images/MaintAsst.png" height="70px" class="sapUiTinyMarginTop"/>
+		<ToolbarSpacer/>
+		<Image src="images/SAPLogo.png" height="20px" class="sapUiMediumMarginEnd sapUiTinyMarginTop sapUiTinyMarginBottom"/>
+	</tnt:ToolHeader>
+	<App id="SplitApp1">
+		<Page id="videoPage" title="Deloitte Digital Twin" class="sapUiStdPage test bgImage" showHeader="false">
+			<content>
+				<!--<Button text="O" press="changeView"/>-->
+				<!--<Button text="Break" press="breakOpenModel"/>-->
+				<FlexBox id="statisticsView" width="100%" visible="true">
+					<VBox id="siri_model" width="700px" class="floatPanel2" height="220px" visible="true">
+						<HBox width="100%">
+							<VBox width="425px" height="220px" class="floatSubPanel">
+								<Text class="statusText sapUiMediumMargin" id="twinText" text=""></Text>
+							</VBox>
+							<VBox width="225px" height="220px" class="floatSubPanel">
+								<VBox width="100%" height="50%" class="floatSubPanel2">
+									<Image src="./images/Part.png" width="100%"/>
+								</VBox>
+								<VBox width="100%" height="50%" alignItems="Center">
+									<Label text="Unit 3970" class="dashLabel sapUiLargeMarginTop" design="Bold"></Label>
+								</VBox>
+							</VBox>
+							<VBox width="50px" height="220px" class="floatSubPanel" alignItems="Center">
+								<core:Icon id="microIcon" src="sap-icon://microphone" color="#F2F2F2" class="sapUiTinyMargin" size="2em"/>
+								<core:Icon id="soundIcon" src="sap-icon://sound-loud" color="#F2F2F2" class="sapUiTinyMargin" size="2em"/>
+								<core:Icon src="sap-icon://sys-enter" color="#F2F2F2" class="sapUiTinyMargin" press="changeView" size="2em"/>
+								<core:Icon src="sap-icon://action-settings" color="#F2F2F2" class="sapUiTinyMargin" press="breakOpenModel" size="2em"/>
+							</VBox>
+						</HBox>
+					</VBox>
+					<VBox id="statistics_panel" width="1895px" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel" height="770px" visible="false">
+						<!--<core:Icon id="closeButton" src="sap-icon://decline" press="closeFloatingPanel" tooltip="Close" size="1.5em"/>-->
+						<!--<HBox alignItems="Center" justifyContent="Center">-->
+						<!--	<Text class="sapUiMediumMarginTop" id="vineNameLabel" text="Vine_Name"/>-->
+						<!--</HBox>-->
+						<!--<Text class="sapUiSmallMarginBegin sapUiSmallMarginTop" id="fieldLabel" text=""/>-->
+						<!--<Text class="sapUiSmallMarginBegin" id="contentLabel" text=""/>-->
+						<!--<acc:ChartJSControl width="450" height="220" responsive="true" chartType="Line" data="{vineWeatherModel>/weatherData}"-->
+						<!--	options="{vineWeatherModel>/options}"/>-->
+						<HBox width="100%">
+							<VBox width="1400px" height="390px" class="sapUiTinyMargin floatSubPanel">
+								<acc:ChartJSControl width="1200" height="315" responsive="true" chartType="bar" id="temperatureChart"
+									options="{title: {display: 'true', text: 'Rotor Temperature', fontColor: 'white', fontSize: 18}, legend: { labels: { fontColor: 'white', fontSize: 12 } }, scales: { xAxes: [{ticks:{ fontColor: 'white', fontSize: 12},gridLines: { color: 'white'} }], yAxes: [{display: true, ticks: { fontColor: 'white', fontSize: 12, beginAtZero: true } }]}}"/>
+							</VBox>
+							<VBox width="460px" height="390px" class="sapUiTinyMargin">
+								<HBox width="100%" class="floatStatPanel" justifyContent="Center" height="130px">
+									<VBox alignItems="Center">
+										<Label text="Total Hot Starts" class="dashLabel sapUiSmallMarginTop"/>
+										<HBox><Label text="16" class="dashStat" design="Bold"/></HBox>
+									</VBox>
+								</HBox>
+								<HBox width="100%" class="floatStatPanel" justifyContent="Center" height="130px">
+									<VBox alignItems="Center">
+										<Label text="Total Warm Starts" class="dashLabel sapUiSmallMarginTop"/>
+										<HBox><Label text="23" class="dashStat" design="Bold"/></HBox>
+									</VBox>
+								</HBox>
+								<HBox width="100%" class="floatStatPanel" justifyContent="Center" height="130px">
+									<VBox alignItems="Center">
+										<Label text="Total Cold Starts" class="dashLabel sapUiSmallMarginTop"/>
+										<HBox><Label text="15" class="dashStat" design="Bold"/></HBox>
+									</VBox>
+								</HBox>
+							</VBox>
+						</HBox>
+						<HBox width="100%">
+							<VBox width="1400px" height="350px" class="sapUiTinyMargin floatSubPanel">
+								<acc:ChartJSControl width="1200" height="290" responsive="true" chartType="line" id="cycleChart"
+									options="{title: {display: 'true', text: 'Engine Cycle', fontColor: 'white', fontSize: 18}, legend: { labels: { fontColor: 'white', fontSize: 12 } }, scales: { xAxes:[{gridLines: { color: 'white'}, ticks: {fontColor: 'white', fontSize: 12}}], yAxes: [{ display: true, ticks: { fontColor: 'white', fontSize: 12, beginAtZero: true } }]}}"/>
+							</VBox>
+							<VBox width="460px" height="350px" class="sapUiTinyMargin">
+								<HBox width="100%" class="floatSubPanel" justifyContent="Center" height="175px">
+									<VBox alignItems="Center">
+										<Label text="Max Rotor Temperature" class="dashLabel sapUiMediumMarginTop"/>
+										<HBox><Label text="537.2" class="dashStat sapUiTinyMargin" design="Bold"/><Label text="°C" class="dashMetric sapUiSmallMarginTop" design="Bold"/></HBox>
+									</VBox>
+								</HBox>
+								<HBox width="100%" class="floatSubPanel" justifyContent="Center" height="175px">
+									<VBox alignItems="Center">
+										<Label text="Min Rotor Temperature" class="dashLabel sapUiMediumMarginTop"/>
+										<HBox><Label text="148.9" class="dashStat sapUiTinyMargin" design="Bold"/><Label text="°C" class="dashMetric sapUiSmallMarginTop" design="Bold"/></HBox>
+									</VBox>
+								</HBox>
+							</VBox>
+						</HBox>
+					</VBox>
+					<VBox id="model_panel" width="1895px" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel3" height="770px" visible="true">
+						<vk:Viewer id="viewer" toolbarTitle="" enableToolbar="false" enableProgressIndicator="false" width="100%" height="770px"
+							showSceneTree="false" showStepNavigation="false" showStepNavigationThumbnails="false" enableFullScreen="true"></vk:Viewer>
+						<HBox width="20%" height="17%" class="floatSubPanel4" id="damageStat" visible="false">
+							<VBox width="50%" height="100%" class="floatSubPanel" alignItems="Center">
+								<Label text="Damage Rate" class="dashLabel2 sapUiTinyMargin sapUiSmallMarginTop"/>
+								<Label text="4x ↑" class="dashStatRed sapUiTinyMargin" design="Bold"/>
+							</VBox>
+							<VBox width="50%" height="100%" class="floatSubPanel" alignItems="Center">
+								<Label text="Remaining Life" class="dashLabel2 sapUiTinyMargin sapUiSmallMarginTop"/>
+								<Label text="58.3% ↓" class="dashStatBlue sapUiTinyMargin" design="Bold"/>
+							</VBox>
+						</HBox>
+					</VBox>
+					<VBox id="options_panel" width="1895px" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel4" height="770px" visible="false">
+						<HBox width="100%" height="100%">
+							<VBox id="option1" width="49%" class="floatSubPanel3 sapUiSmallMargin" height="95%" visible="true">
+								<HBox width="100%" height="30%">
+									<VBox width="30%" height="100%" class="floatStatPanel" alignItems="Center">
+										<Label text="Option" class="dashLabel sapUiSmallMargin"/>
+										<Label text="A" class="dashStat sapUiTinyMargin" design="Bold"/>
+									</VBox>
+									<VBox width="70%" height="100%" class="floatStatPanel">
+										<Text class="statusText sapUiMediumMargin"
+											text="Manually refine start-ups in order to decrease rotor stress, reduce wear, and prolong the lifespan. This involves retraining of operators, as well as reconfiguring certain protocols."></Text>
+									</VBox>
+								</HBox>
+								<acc:ChartJSControl width="640" height="300" responsive="true" chartType="line" id="cycleChart2"
+									options="{title: {display: 'true', text: 'Stress Comparison (KSI)', fontColor: 'white', fontSize: 18}, legend: { labels: { fontColor: 'white', fontSize: 12 } }, scales: { xAxes:[{gridLines: { color: 'white'}, ticks: {fontColor: 'white', fontSize: 12}}], yAxes: [{ display: true, ticks: { fontColor: 'white', fontSize: 12, beginAtZero: true } }]}}"/>
+								<HBox width="100%" height="20%">
+									<VBox width="50%" height="100%" alignItems="Center" class="floatStatPanel">
+										<HBox width="100%" height="100%" class="sapUiMediumMarginTop" justifyContent="Center">
+											<Label text="25.0%" class="dashStatBlue sapUiTinyMargin" design="Bold"/>
+											<Label text="reduction in stress" class="dashLabel sapUiSmallMargin"/>
+										</HBox>
+									</VBox>
+									<VBox width="50%" height="100%" class="floatStatPanel" alignItems="Center">
+										<HBox width="100%" height="100%" class="sapUiMediumMarginTop" justifyContent="Center">
+											<Label text="22.2%" class="dashStatGreen sapUiTinyMargin" design="Bold"/>
+											<Label text="increased output" class="dashLabel sapUiSmallMargin"/>
+										</HBox>
+									</VBox>
+								</HBox>
+							</VBox>
+							<VBox id="option2" width="49%" class="floatSubPanel3 sapUiSmallMargin" height="95%" visible="true">
+								<HBox width="100%" height="30%">
+									<VBox width="30%" height="100%" class="floatStatPanel" alignItems="Center">
+										<Label text="Option" class="dashLabel sapUiSmallMargin"/>
+										<Label text="B" class="dashStat sapUiTinyMargin" design="Bold"/>
+									</VBox>
+									<VBox width="70%" height="100%" class="floatStatPanel">
+										<Text class="statusText sapUiMediumMargin"
+											text="Download Deloitte Predictive Maintenance to help optimise machine performance in order to minimise wear and fuel consumption, as well as improve rotor stress levels."></Text>
+									</VBox>
+								</HBox>
+								<acc:ChartJSControl width="640" height="300" responsive="true" chartType="line" id="cycleChart3"
+									options="{title: {display: 'true', text: 'Stress Comparison (KSI)', fontColor: 'white', fontSize: 18}, legend: { labels: { fontColor: 'white', fontSize: 12 } }, scales: { xAxes:[{gridLines: { color: 'white'}, ticks: {fontColor: 'white', fontSize: 12}}], yAxes: [{ display: true, ticks: { fontColor: 'white', fontSize: 12, beginAtZero: true } }]}}"/>
+								<HBox width="100%" height="20%">
+									<VBox width="50%" height="100%" alignItems="Center" class="floatStatPanel">
+										<HBox width="100%" height="100%" class="sapUiMediumMarginTop" justifyContent="Center">
+											<Label text="18.4%" class="dashStatBlue sapUiTinyMargin" design="Bold"/>
+											<Label text="reduction in stress" class="dashLabel sapUiSmallMargin"/>
+										</HBox>
+									</VBox>
+									<VBox width="50%" height="100%" class="floatStatPanel" alignItems="Center">
+										<HBox width="100%" height="100%" class="sapUiMediumMarginTop" justifyContent="Center">
+											<Label text="31.5%" class="dashStatGreen sapUiTinyMargin" design="Bold"/>
+											<Label text="increased output" class="dashLabel sapUiSmallMargin"/>
+										</HBox>
+									</VBox>
+								</HBox>
+							</VBox>
+							<VBox id="option1_details" width="49%" class="sapUiSmallMargin" height="95%" visible="false">
+								<HBox width="100%" height="33%" justifyContent="Center" class="sapUiLargeMarginTop">
+									<VBox width="40%" height="65%" alignItems="Center" class="sapUiSmallMargin floatSubPanel3">
+										<Label text="Historical Data" class="dashLabel sapUiSmallMargin"/>
+										<Label text="15yrs" class="dashStatBlue sapUiTinyMargin" design="Bold"/>
+									</VBox>
+									<VBox width="40%" height="65%" class="floatSubPanel3 sapUiSmallMargin" alignItems="Center">
+										<Label text="Simulation Runs" class="dashLabel sapUiSmallMargin"/>
+										<Label text="3158" class="dashStatGreen sapUiTinyMargin" design="Bold"/>
+									</VBox>
+								</HBox>
+								<HBox width="100%" height="33%" justifyContent="Center">
+									<VBox width="40%" height="65%" alignItems="Center" class="floatSubPanel3 sapUiSmallMargin">
+										<Label text="Other Data Sources" class="dashLabel sapUiSmallMargin"/>
+										<Label text="184" class="dashStatYellow sapUiTinyMargin" design="Bold"/>
+									</VBox>
+									<VBox width="40%" height="65%" class="floatSubPanel3 sapUiSmallMargin" alignItems="Center">
+										<Label text="Algorithm" class="dashLabel sapUiSmallMargin"/>
+										<Label text="PAL" class="dashStatBlue sapUiTinyMargin" design="Bold"/>
+									</VBox>
+								</HBox>
+								<HBox width="100%" height="33%" justifyContent="Center">
+									<VBox width="40%" height="65%" alignItems="Center" class="floatSubPanel3 sapUiSmallMargin">
+										<Label text="Variance" class="dashLabel sapUiSmallMargin"/>
+										<Label text="88%" class="dashStatRed sapUiTinyMargin" design="Bold"/>
+									</VBox>
+									<VBox width="40%" height="65%" class="floatSubPanel3 sapUiSmallMargin" alignItems="Center">
+										<Label text="Confidence" class="dashLabel sapUiSmallMargin"/>
+										<Label text="94%" class="dashStatYellow sapUiTinyMargin" design="Bold"/>
+									</VBox>
+								</HBox>
+							</VBox>
+							<VBox id="option1_finance" width="49%" class="sapUiSmallMargin" height="95%" visible="false">
+								<HBox width="100%" height="33%" justifyContent="Center" class="sapUiLargeMarginTop">
+									<VBox width="40%" height="65%" alignItems="Center" class="sapUiSmallMargin floatSubPanel3">
+										<Label text="Stress Reduction" class="dashLabel sapUiSmallMargin"/>
+										<Label text="25% ↓" class="dashStatRed sapUiTinyMargin" design="Bold"/>
+									</VBox>
+									<VBox width="40%" height="65%" class="floatSubPanel3 sapUiSmallMargin" alignItems="Center">
+										<Label text="Output Increase" class="dashLabel sapUiSmallMargin"/>
+										<Label text="22% ↑" class="dashStatBlue sapUiTinyMargin" design="Bold"/>
+									</VBox>
+								</HBox>
+								<HBox width="100%" height="33%" justifyContent="Center">
+									<VBox width="40%" height="65%" alignItems="Center" class="floatSubPanel3 sapUiSmallMargin">
+										<Label text="Startup Fuel Cost" class="dashLabel sapUiSmallMargin"/>
+										<Label text="37% ↓" class="dashStatBlue sapUiTinyMargin" design="Bold"/>
+									</VBox>
+									<VBox width="40%" height="65%" class="floatSubPanel3 sapUiSmallMargin" alignItems="Center">
+										<Label text="Startup Time" class="dashLabel sapUiSmallMargin"/>
+										<Label text="50% ↓" class="dashStatGreen sapUiTinyMargin" design="Bold"/>
+									</VBox>
+								</HBox>
+								<HBox width="100%" height="33%" justifyContent="Center">
+									<VBox width="40%" height="65%" alignItems="Center" class="floatSubPanel3 sapUiSmallMargin">
+										<Label text="Duration" class="dashLabel sapUiSmallMargin"/>
+										<Label text="45hours" class="dashStatYellow sapUiTinyMargin" design="Bold"/>
+									</VBox>
+									<VBox width="40%" height="65%" class="floatSubPanel3 sapUiSmallMargin" alignItems="Center">
+										<Label text="Avoided Cost" class="dashLabel sapUiSmallMargin"/>
+										<Label text="$10M" class="dashStatRed sapUiTinyMargin" design="Bold"/>
+									</VBox>
+								</HBox>
+							</VBox>
+							<HBox id="confirmation" width="49%" justifyContent="Center" class="sapUiSmallMargin" height="95%" visible="false">
+								<VBox width="78%" alignItems="Center" class="sapUiSmallMargin sapUiLargeMarginTop" height="85%">
+									<!--<HBox width="60%" height="15%" justifyContent="Center" class="sapUiLargeMarginTop floatSubPanel2">-->
+									<core:Icon src="sap-icon://sys-enter" color="#32d632" size="10rem" class="sapUiSmallMargin"/>
+									<Label text="Option A Selected" class="dashStatGreen sapUiTinyMargin" design="Bold"/>
+									<!--</HBox>-->
+									<HBox width="70%" height="10%" justifyContent="Start" class="sapUiMediumMarginTop">
+										<core:Icon src="sap-icon://example" color="#ffffff" size="1.3rem" class="sapUiSmallMargin"/>
+										<Label text="Mitigate potential $10M damages" class="dashStatGreySmall sapUiTinyMargin sapUiSmallMarginTop"/>
+									</HBox>
+									<HBox width="70%" height="10%" justifyContent="Start" class="sapUiMediumMarginTop">
+										<core:Icon src="sap-icon://example" color="#ffffff" size="1.3rem" class="sapUiSmallMargin"/>
+										<Label text="Increase machine life span by 5.4 years" class="dashStatGreySmall sapUiTinyMargin sapUiSmallMarginTop"/>
+									</HBox>
+									<HBox width="70%" height="10%" justifyContent="Start" class="sapUiMediumMarginTop">
+										<core:Icon src="sap-icon://example" color="#ffffff" size="1.3rem" class="sapUiSmallMargin"/>
+										<Label text="Prevent critical rotor damage" class="dashStatGreySmall sapUiTinyMargin sapUiSmallMarginTop"/>
+									</HBox>
+								</VBox>
+							</HBox>
+						</HBox>
+					</VBox>
+				</FlexBox>
+			</content>
+		</Page>
+	</App>
+</mvc:View>
